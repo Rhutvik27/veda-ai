@@ -1,0 +1,6 @@
+{
+  "name": "Veda AI",
+  "description": "Intelligent 3D acupressure, muscular anatomy, multilingual voice assistant (English, Hindi, Marathi), live camera hand-point detection, pranayama yoga, and Arduino wellness companion.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

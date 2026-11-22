@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #f4f7ff;
+  --mut: rgba(235, 243, 255, 0.82);
+  --acc: #5ac8fa;
+  --ok: #34d399;
+  --warn: #ffb340;
+  --pk: #ff6b9d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: #070b1a;
+  overflow-x: hidden;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.veda-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #090f2b, #0e1742 48%, #092538);
+}
+
+.veda-bg i {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.48;
+  animation: vedaFloat 22s ease-in-out infinite alternate;
+}
+
+.veda-bg i:nth-child(1) {
+  width: 520px;
+  height: 520px;
+  background: #3b6bff;
+  left: -120px;
+  top: -100px;
+}
+
+.veda-bg i:nth-child(2) {
+  width: 460px;
+  height: 460px;
+  background: #ff5c9e;
+  right: -100px;
+  top: 20%;
+  animation-delay: -7s;
+}
+
+.veda-bg i:nth-child(3) {
+  width: 480px;
+  height: 480px;
+  background: #1fe0b4;
+  left: 30%;
+  bottom: -200px;
+  animation-delay: -13s;
+}
+
+@keyframes vedaFloat {
+  to {
+    transform: translate(80px, 50px) scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veda-bg i {
+    animation: none;
+  }
+}
+
+.glass-panel {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Never apply backdrop-filter over active WebGL canvas */
+.webgl-hud-surface {
+  background: rgba(9, 15, 38, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.veda-btn {
+  color: var(--ink);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 13px;
+  padding: 8px 15px;
+  font-weight: 600;
+  font-size: 13px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.07));
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.32), 0 8px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transition: transform 0.1s ease, filter 0.15s ease, box-shadow 0.1s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.veda-btn:hover {
+  filter: brightness(1.14);
+}
+
+.veda-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.32), 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.veda-btn:focus-visible {
+  outline: 2px solid #7fe3ff;
+  outline-offset: 2px;
+}
+
+.veda-btn-primary {
+  background: linear-gradient(180deg, #6fdcff, #2a7cff);
+  box-shadow: 0 4px 0 #1a4aa6, 0 10px 20px rgba(30, 100, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  border-color: #bfe6ff;
+  color: #ffffff;
+}
+
+.veda-btn-green {
+  background: linear-gradient(180deg, #4fe3b0, #12a37a);
+  box-shadow: 0 4px 0 #0a6b50, 0 10px 20px rgba(20, 200, 140, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: #9bf3d5;
+  color: #032117;
+}
+
+.veda-btn-danger {
+  background: linear-gradient(180deg, #ff7a7a, #d93636);
+  box-shadow: 0 4px 0 #8c1b1b, 0 10px 20px rgba(230, 50, 50, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: #ffb8b8;
+  color: #ffffff;
+}
+
+.veda-input {
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 10px 13px;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+.veda-input:focus {
+  border-color: var(--acc);
+}
+
+.veda-input option {
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.veda-chip {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05));
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.veda-chip:hover {
+  filter: brightness(1.15);
+}
+
+.veda-chip.on {
+  background: linear-gradient(180deg, #6fdcff, #2a7cff);
+  border-color: #bfe6ff;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 9px;
+}
